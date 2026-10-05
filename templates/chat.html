@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='chat.css') }}">
+</head>
+<body>
+    <div class="chat-page">
+        <header class="chat-header">
+            <div class="brand">
+                <img src="{{ url_for('static', filename='images/robot.png') }}" alt="Robot">
+                <div class="brand-text">
+                    <h1>AI Chatbot</h1>
+                    <p>Your intelligent agent</p>
+                </div>
+            </div>
+            <div class="user-area">
+                <span class="user-name">Hi, {{ session.get('user_name', 'there') }}</span>
+                <a href="/logout" class="logout-link">Logout</a>
+            </div>
+        </header>
+        <main class="chat-card">
+            <div class="chat-messages" id="chat-box">
+                <div class="message bot">
+                    <img class="avatar" src="{{ url_for('static', filename='images/robot.png') }}" alt="Bot">
+                    <div class="bubble">Welcome to your AI Chatbot! How can I help you today?</div>
+                </div>
+                {% for old_message, old_response in history %}
+                <div class="message user">
+                    <div class="bubble">{{ old_message }}</div>
+                </div>
+                <div class="message bot">
+                    <img class="avatar" src="{{ url_for('static', filename='images/robot.png') }}" alt="Bot">
+                    <div class="bubble">{{ old_response }}</div>
+                </div>
+                {% endfor %}
+            </div>
+            <form class="chat-input-bar" id="chat-form" autocomplete="off">
+                <input type="text" id="message" name="message" placeholder="Type your message..." required>
+                <button type="submit" class="send-button" aria-label="Send message">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </form>
+        </main>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>

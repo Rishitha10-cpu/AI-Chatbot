@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - AI Chatbot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}">
+</head>
+<body>
+    <div class="page">
+        <header class="page-header">
+            <div class="chatbot-title">
+                <img src="{{ url_for('static', filename='images/robot.png') }}" alt="Robot">
+                <div class="chatbot-text">
+                    <h1>AI Chatbot</h1>
+                    <p>Your intelligent agent</p>
+                </div>
+            </div>
+        </header>
+        <main class="login-section">
+            <div class="login-image">
+                <img src="{{ url_for('static', filename='images/login-image.jpg') }}" alt="AI Chatbot">
+            </div>
+            <div class="login-card signup-card">
+                <h2>Create Account</h2>
+                <p class="login-subtitle">Sign up to start chatting with your AI Chatbot</p>
+                {% if error %}
+                <div class="error-message">{{ error }}</div>
+                {% endif %}
+                <form method="POST" action="/signup">
+                    <div class="input-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" value="{{ name or '' }}"
+                            required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email"
+                            value="{{ email or '' }}" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Create a password"
+                            minlength="6" required>
+                    </div>
+                    <button type="submit" class="login-button">Sign Up</button>
+                </form>
+                <p class="signup-text">
+                    Already have an account?
+                    <a href="/login">Login here</a>
+                </p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

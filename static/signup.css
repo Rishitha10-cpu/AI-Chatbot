@@ -1,0 +1,42 @@
+.signup-card .login-subtitle {
+    margin-bottom: calc(var(--h) * 0.035);
+}
+.signup-card .input-group {
+    margin-bottom: calc(var(--h) * 0.02);
+}
+.signup-card .input-group label {
+    margin-bottom: calc(var(--h) * 0.01);
+}
+.signup-card .login-button {
+    margin-top: calc(var(--h) * 0.015);
+}
+.signup-card .signup-text {
+    margin-top: calc(var(--h) * 0.03);
+}
+.signup-card .error-message {
+    margin-bottom: calc(var(--h) * 0.025);
+}
+.input-group input[type="text"] {
+    background-image:
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237a88a8' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='8' r='4'/><path d='M4 21c0-4 3.5-7 8-7s8 3 8 7'/></svg>");
+}
+@media (max-width: 800px) {
+    .signup-card .login-subtitle {
+        margin-bottom: 22px;
+    }
+    .signup-card .input-group {
+        margin-bottom: 16px;
+    }
+    .signup-card .input-group label {
+        margin-bottom: 8px;
+    }
+    .signup-card .login-button {
+        margin-top: 4px;
+    }
+    .signup-card .signup-text {
+        margin-top: 20px;
+    }
+    .signup-card .error-message {
+        margin-bottom: 16px;
+    }
+}
